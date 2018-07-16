@@ -7,3 +7,8 @@ function getRandomInteger (min, max) {
 function roll (sides) {
   return getRandomInteger(1, sides)
 }
+
+
+module.exports = {
+roll
+}

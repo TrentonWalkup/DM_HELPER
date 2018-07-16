@@ -1,4 +1,6 @@
 
+var dice = require('./utils/dice.js')
+var _ = require('lodash');
 // if (dieRoll === 1) {
 //   console.log(monster1)
 // } else if (dieRoll === 2) {
@@ -27,3 +29,26 @@
 //   console.log('No eniemies spotted!')
 // }
 // console.log(i('loot'))
+
+
+
+const sample = (x = []) => {
+  if (!x || !x.length) {
+    return
+  }
+
+  const l = x.length
+  const i = dice.roll(l)
+  return x[i - 1]
+}
+
+
+module.exports = () => {
+  return sample([
+    'Battlemind',
+    'Bishop',
+    'Cavalier',
+    'Cleric',
+
+  ])
+}
