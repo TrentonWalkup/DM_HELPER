@@ -1,6 +1,6 @@
 var arm = require('./armor.js')
 var _ = require('lodash');
-
+var dice = require('./utils/dice.js')
 
 var spell = 1
 
@@ -90,20 +90,23 @@ var enemies = [
       Level: 3,
       Monster: 'Goblin war lord',
       HP: Math.floor(Math.random() * 25) +5,
-      Armour: _.sample(arm.heavyArmor)
+      Armour: _.sample(arm.heavyArmor),
+      Attack_Mod: dice.roll(6)
     },
     {
       Level: 3,
       Monster: 'Goblin adept',
       HP: Math.floor(Math.random() * 15) +10,
       Spell: spell,
-      Armour: arm.magic_robes
+      Armour: arm.magic_robes,
+      Attack_Mod: dice.roll(6)
     },
     {
       Level: 3,
       Monster: 'Goblin Necromancer',
       HP: Math.floor(Math.random() * 25) +3,
-      Armour: arm.magic_robes
+      Armour: arm.magic_robes,
+      Attack_Mod: dice.roll(6)
     },
     {
       Level: 2, Monster: 'Goblin',
@@ -118,33 +121,13 @@ var enemies = [
     {
       Level: 3, Monster: 'Goblin Knight',
       HP: Math.floor(Math.random()* 25) +3,
-      Armour: _.sample(arm.heavyArmor)
+      Armour: _.sample(arm.heavyArmor),
+      Attack_Mod: dice.roll(6)
     }
   ]
 
-  get_random = function (list) {
-    return list[Math.floor((Math.random()*list.length))];
-  }
 
-// console.log(_.sample(enemies))
 
-// if (lodash.Level != 2){
-//   console.log(lodash)
-// } else {
-//   console.log('worked')
-// }
-monster1 = _.sample(enemies)
-monster2 = _.sample(enemies)
-monster3 = _.sample(enemies)
-monster4 = _.sample(enemies)
-monster5 = _.sample(enemies)
-
-if (monster1.Level > 1){
-  console.log(monster1)
-  console.log(monster2)
-} else {
-  console.log(monster1)
-}
 module.exports = {
-
+enemies
 }
